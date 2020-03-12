@@ -1,0 +1,77 @@
+<br><br>
+<div *ngFor="let data of completeData; let i = index"  >
+
+<div class="container-fluid">
+  <div class="row" style="border-style: solid">
+    <div class="col-3">
+      <h2 style="color:#0052cc;">{{data.user_id}}</h2><br>
+      <img src="https://i.ibb.co/Xp1zbGh/home-run.png" alt="Home_Icon" width="25%" height="25%">{{data.property_size}}<br><br>
+      <h6>Order date : {{data.date_created}} </h6>
+    </div>
+    <div class="col-6">
+      <h6 style="padding-top: 40px; text-align: center;">{{data.date_created}}</h6>
+      <h5 style="text-align: center;">{{data.moving_from}} -----------------> {{data.moving_to}}</h5><br>
+      <button style="color: white; background-color: darkblue; margin-left: 40%;" (click)="showDetails(i)">View Move Details</button>
+    </div>
+    <div class="col-3">
+      <h2 style="padding-top: 50px; text-align: center;">{{status[i]}}</h2>
+    </div>
+  </div>
+</div>
+<br><br>
+
+
+
+<div *ngIf="show[i] === true" style="margin-top: 20px;border-style: solid;">
+  <div style="background-color: gray; ">
+    <div class="row" style="display: flex; flex-direction: row; justify-content: space-between; padding-left: 40px; padding-right: 40px;">
+        <p >Item Details</p>
+        <p style="float: right;">Edit</p>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-6">
+        <button>{{getKeys(data.items.rooms)[0]}}</button><br><br>
+        <button>{{getValues(getValues(data.items.rooms)[0])[0]}} <br>{{getKeys(getValues(data.items.rooms)[0])[0]}}</button>
+        <button>{{getValues(getValues(data.items.rooms)[1])[1]}}<br>{{getKeys(getValues(data.items.rooms)[1])[1]}}</button>
+        <button>{{getValues(getValues(data.items.rooms)[2])[2]}}<br>{{getKeys(getValues(data.items.rooms)[2])[2]}}</button>
+        <button>{{getValues(getValues(data.items.rooms)[3])[3]}}<br>{{getKeys(getValues(data.items.rooms)[3])[3]}}</button> <br><br>
+        <button>{{getKeys(data.items.rooms)[1]}}</button><br><br>
+        <button>{{getValues(getValues(data.items.rooms)[1])[0]}} <br>{{getKeys(getValues(data.items.rooms)[1])[0]}}</button>
+        <button>{{getValues(getValues(data.items.rooms)[1])[1]}}<br>{{getKeys(getValues(data.items.rooms)[1])[1]}}</button>
+        <button>{{getValues(getValues(data.items.rooms)[1])[2]}}<br>{{getKeys(getValues(data.items.rooms)[2])[2]}}</button>
+        <button>{{getValues(getValues(data.items.rooms)[1])[3]}}<br>{{getKeys(getValues(data.items.rooms)[3])[3]}}</button> <br><br>
+        <button>{{getKeys(data.items.rooms)[2]}}</button><br><br>
+        <button>{{getValues(getValues(data.items.rooms)[2])[0]}} <br>{{getKeys(getValues(data.items.rooms)[0])[0]}}</button>
+        <button>{{getValues(getValues(data.items.rooms)[2])[1]}}<br>{{getKeys(getValues(data.items.rooms)[1])[1]}}</button>
+        <button>{{getValues(getValues(data.items.rooms)[2])[2]}}<br>{{getKeys(getValues(data.items.rooms)[2])[2]}}</button>
+        <button>{{getValues(getValues(data.items.rooms)[2])[3]}}<br>{{getKeys(getValues(data.items.rooms)[3])[3]}}</button> <br><br>
+      </div>
+      <div class="col-6">
+        <button>{{getKeys(data.items.rooms)[3]}}</button><br><br>
+        <button>{{getValues(getValues(data.items.rooms)[3])[0]}} <br>{{getKeys(getValues(data.items.rooms)[0])[0]}}</button>
+        <button>{{getValues(getValues(data.items.rooms)[3])[1]}}<br>{{getKeys(getValues(data.items.rooms)[1])[1]}}</button>
+        <button>{{getValues(getValues(data.items.rooms)[3])[2]}}<br>{{getKeys(getValues(data.items.rooms)[2])[2]}}</button>
+        <button>{{getValues(getValues(data.items.rooms)[3])[3]}}<br>{{getKeys(getValues(data.items.rooms)[3])[3]}}</button> <br><br>
+      </div>
+  
+  <div class="container-fluid" style="margin: auto;">
+    <div class="row">
+      <div class="col-12">
+        <button>Deal of Existing House </button>     Floor No {{data.old_floor_no}     Elevator  <button> {{data.old_elevator_availability}} </button>   packing  <button> {{data.packing_service}} </button> Approx distance door to truck parking  <button>  50  </button><button>  Meter  </button><br><br>
+      </div>
+      <div class="col-12">
+        <button>Deal of New House </button>     Floor No {{data.new_floor_no}}     Elevator  <button> {{data.new_elevator_availability}} </button>   Unpacking <button> {{data.unpacking_service}} </button> Approx distance door to truck parking  <button>  70  </button><button>  Meter  </button>
+      </div>
+    </div>
+  </div><br><br>
+  <div style="align-items: center; margin: 20px;">
+    <Button (click)="hideDetails(i)">Back to My Move Plan</Button>
+  </div>
+</div><br>
+</div>
+
+
+
+</div>
+
